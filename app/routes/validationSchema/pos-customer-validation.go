@@ -52,13 +52,13 @@ type (
 	UpdatePosCostomers struct {
 		Name          string        `json:"name" validate:"required"`
 		Company_name  string        `json:"company_name" validate:"required"`
-		Email         string        `json:"email"`
-		Mobile        string        `json:"mobile"`
+		Email         string        `json:"email" validate:"required"`
+		Mobile        string        `json:"mobile" validate:"required"`
 		Address       CreateAddress `json:"address" validate:"required"`
-		Orders_Count  string        `json:"orders_count"`
+		Orders_Count  string        `json:"orders_count" validate:"required"`
 		Account_id    string        `json:"account_id" validate:"required"`
 		CreatedBy     string        `json:"created_by"`
-		Customer_type string        `json:"customer_type" default:"business" validate:"required"` //enum ["business", 'customer'], default:'business'
+		Customer_type string        `json:"customer_type" validate:"oneof='business' 'consumer'"` //enum ["business", 'customer'], default:'business'
 		Customer_id   string        `json:"customer_id" bson:"customer_id" validate:"required"`
 		Pan           string        `json:"pan" validate:"required"`
 		Gstin         string        `json:"gstin" validate:"required"`
