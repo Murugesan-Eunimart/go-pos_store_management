@@ -26,4 +26,6 @@ func PosCustomersRoutes(app fiber.Router) {
 
 	//Get single pos customer
 	app.Get("/pos_customer/get", services.ListCustomer)
+
+	app.Post("/pos_customer/quick_add", validationSchema.UpdateCustomerValidate, services.CreateCustomer)
 }

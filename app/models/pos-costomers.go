@@ -3,11 +3,6 @@ package models
 import "github.com/kamva/mgm/v3"
 
 type (
-	Data struct {
-		Data     PosCostomers `json:"data"`
-		UserInfo UserInfo     `json:"user_info"`
-	}
-
 	PosCostomers struct {
 		mgm.DefaultModel
 		Name          string  `json:"name"`
@@ -32,9 +27,5 @@ type (
 		State   string `json:"state"`
 		Country string `json:"country"`
 		Address string `json:"address"`
-	}
-
-	UserInfo struct {
-		User_id string `json:"user_id"`
 	}
 )

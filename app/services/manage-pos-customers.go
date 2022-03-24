@@ -6,6 +6,7 @@ import (
 	"go-pos-stores/app/models"
 	"go-pos-stores/app/routes/validationSchema"
 	"go-pos-stores/app/services/errorcodes"
+	"go-pos-stores/app/services/input_schemas"
 	"log"
 	"math"
 	"strconv"
@@ -19,7 +20,7 @@ import (
 
 //Create api for creating the pos customers.
 func CreateCustomer(c *fiber.Ctx) error {
-	var data models.Data
+	var data input_schemas.Data
 
 	if err := c.BodyParser(&data); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
@@ -55,9 +56,9 @@ func CreateCustomer(c *fiber.Ctx) error {
 	})
 }
 
-//Update api
+//Update customer api
 func UpdateCustomer(c *fiber.Ctx) error {
-	var data models.Data
+	var data input_schemas.Data
 
 	err := c.BodyParser(&data)
 	if err != nil {
